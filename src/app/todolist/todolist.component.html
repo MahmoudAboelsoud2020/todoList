@@ -1,0 +1,31 @@
+
+<!--
+<div style="padding: 30px 0px;">
+  <h2 style="text-align: center;"> To DoList Task</h2>
+</div> -->
+
+<div class="tasks">
+<div class="date">
+  <div class="year-month">12/Jan/2016</div>
+  <div class="day">Tuesday</div>
+</div>
+
+
+  <ul class="ul-data" >
+    <li  class="item" *ngFor="let item of items | async">
+      <span class="hover-cursor" [class.text-success]="item.icChecked">
+        <div style="flex: 1">
+          <input class="form-control" style=" width: 80%;" type="text" #updatetext [value]="item.title" />
+        </div>
+        <button class="far fa-edit update-item" (click)="updateItem(item.key, updatetext.value)"></button>
+        <button class="far fa-trash-alt delete-item" (click)="deleteItem(item.key)"></button>
+      </span>
+    </li>
+  </ul>
+
+  <div style="display: flex; align-items: center;"   class="input-group new-item">
+    <input  style="margin-right: 10px;" type="text" class="form-control"  #itemtitle>
+    <button class="add-item " (click)="onAdd(itemtitle)"> + </button>
+  </div>
+
+</div>
